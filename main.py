@@ -78,5 +78,14 @@ def update_data():
     return response
 
 
+@app.route("/delete_todo/")
+def delete_todo():
+    """
+    Removing The Contact Which Is Dont Want to Keep in Records
+    """
+    remove = db.todos.delete_one({'name': "priyanka"})
+    return remove
+
+
 if __name__ == '__main__':
     app.run(debug=True)
