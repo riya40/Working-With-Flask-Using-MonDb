@@ -20,5 +20,16 @@ def hello():
     return "Hello World! Working With MongoDb and Flask"
 
 
+@app.route("/add_one/")
+def add_one():
+    """
+    Adding The First Contact
+    """
+    db.todos.insert_one({'_id': "1", 'name': "diya", 'number': "94658747"})
+    return flask.jsonify(message="success")
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
