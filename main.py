@@ -57,5 +57,14 @@ def get_data():
     return flask.jsonify([todo for todo in todos])
 
 
+@app.route("/get_contact/")
+def get_one():
+    """
+    Retrieving the desired contact only
+    """
+    todos = db.todos.find_one({}, {"_id": 0})
+    return todos
+
+
 if __name__ == '__main__':
     app.run(debug=True)
