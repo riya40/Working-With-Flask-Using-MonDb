@@ -48,6 +48,14 @@ def add_many():
     return flask.jsonify(message="success", insertedIds=mul.inserted_ids)
 
 
+@app.route("/retrieve_data/")
+def get_data():
+    """
+    Retrieving all the contacts
+    """
+    todos = db.todos.find()
+    return flask.jsonify([todo for todo in todos])
+
 
 if __name__ == '__main__':
     app.run(debug=True)
