@@ -66,5 +66,17 @@ def get_one():
     return todos
 
 
+@app.route("/update/")
+def update_data():
+    """
+    Updating The Desired Contact Or Replacing The Contact With new One
+    """
+    response = db.todos.update_one(
+        {"name": "diya"},
+        {"$set": {"name": "varshi"}}
+    )
+    return response
+
+
 if __name__ == '__main__':
     app.run(debug=True)
